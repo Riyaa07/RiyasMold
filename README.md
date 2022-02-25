@@ -6,3 +6,5 @@ My product is Ice cube Tray. I have made a data table of it with 7 properties of
 You can create, edit , look at the details and delete it
 
 My table can be find in Ice Tray page in navigation.
+
+Azure link - https://riyasmold.azurewebsites.net
