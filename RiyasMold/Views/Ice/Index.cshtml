@@ -1,0 +1,88 @@
+﻿@model RiyasMold.Models.IceSizeViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<form asp-controller="Ice" asp-action="Index" method="get">
+    <p>
+        <select asp-for="IceSize" asp-items="Model.Sizes">
+            <option value="">All</option>
+        </select>
+        Shape: <input type="text" name="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ices[0].Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ices[0].Size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ices[0].Grids)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ices[0].Color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ices[0].Shape)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ices[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ices[0].Material)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ices[0].Ratings)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Ices)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Size)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Grids)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Color)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Shape)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Material)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ratings)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
